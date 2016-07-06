@@ -1,0 +1,59 @@
+{
+  "version": "1.0.0-*",
+  "title": "MysticMind.HtmlAgilityPack",
+  "description": "This is a port of the popular HtmlAgilityPack targetting the .Net core 1.0 RTM. This fork points to v1.4.9.4 of the actual source including namespaces.",
+  "authors": [ "Babu Annamalai" ],
+  "copyright": "Copyright (C) Babu Annamalai",
+  "packOptions": {
+    "summary": "This is an agile HTML parser that builds a read/write DOM and supports plain XPATH or XSLT. It is a .NET code library that allows you to parse out of the web HTML files. The parser is very tolerant with real world malformed HTML. The object model is very similar to what proposes System.Xml, but for HTML documents (or streams). ",
+    "owners": [
+      "Babu Annamalai"
+    ],
+    "tags": [
+      "Html",
+      "parse",
+      ".net core",
+      "net core",
+      "netcore",
+      "netcore 1.0",
+      "netcore rtm"
+    ],
+    "repository": {
+      "url": "https://github.com/mysticmind/mysticmind-htmlagilitypack"
+    },
+    "licenseUrl": "https://github.com/mysticmind/mysticmind-htmlagilitypack/blob/master/LICENSE",
+    "requireLicenseAcceptance": false
+  },
+  "dependencies": {
+    "NETStandard.Library": "1.6.0"
+  },
+  "frameworks": {
+    "net46": {
+      "frameworkAssemblies": {
+        "System.Xml": "4.0.0.0",
+        "System.Xml.Linq": "4.0.0.0"
+      }
+    },
+    "net452": {
+      "frameworkAssemblies": {
+        "System.Xml": "4.0.0.0",
+        "System.Xml.Linq": "4.0.0.0"
+      }
+    },
+    "net451": {
+      "frameworkAssemblies": {
+        "System.Xml": "4.0.0.0",
+        "System.Xml.Linq": "4.0.0.0"
+      }
+    },
+    "netstandard1.6": {
+      "imports": "dnxcore50",
+      "dependencies": {
+        "System.Diagnostics.TraceSource": "4.0.0-*",
+        "System.Xml.XmlDocument": "4.0.1-*",
+        "System.Xml.XPath": "4.0.1-*",
+        "System.Xml.XPath.XmlDocument": "4.0.1-*"
+      }
+    }
+  }
+}

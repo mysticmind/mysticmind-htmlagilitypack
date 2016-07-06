@@ -1,0 +1,33 @@
+version: 1.0.{build}
+configuration: Release
+before_build:
+- cmd: >-
+    appveyor-retry dotnet restore -v Minimal
+
+    cd %APPVEYOR_BUILD_FOLDER%\src\build
+
+    npm install
+
+    node update-project-version.js ../MysticMind.HtmlAgilityPack/project.json %APPVEYOR_BUILD_VERSION%
+
+    node update-project-version.js ../MysticMind.HtmlAgilityPack.Tests/project.json %APPVEYOR_BUILD_VERSION%
+
+    node update-project-deps-version.js ../MysticMind.HtmlAgilityPack.Tests/project.json MysticMind.HtmlAgilityPack %APPVEYOR_BUILD_VERSION%
+
+    cd %APPVEYOR_BUILD_FOLDER%
+after_build:
+- cmd: dotnet pack "src\MysticMind.HtmlAgilityPack" -c %CONFIGURATION% --no-build -o artifacts
+test_script:
+- ps: >-
+    cd src/MysticMind.HtmlAgilityPack.Tests
+
+    dotnet restore
+
+    dotnet test
+artifacts:
+- path: artifacts\**\*.*
+# deploy:
+# - provider: NuGet
+#   api_key:
+#     secure: 1XMgADnmiLunXwBT7K0CMDcHyoC5tUFE4Cf+X7VkuzoRZiWnIL2P9mP7oPEtGPHg
+#   skip_symbols: true
