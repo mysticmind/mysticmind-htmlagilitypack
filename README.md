@@ -1,4 +1,4 @@
-# MysticMind.HtmlAgilityPack
+# MysticMind.HtmlAgilityPack [![Build status](https://ci.appveyor.com/api/projects/status/5kunl51a20ffnvcm?svg=true)](https://ci.appveyor.com/project/BabuAnnamalai/mysticmind-htmlagilitypack)
 
 This is a port of the popular [HtmlAgilityPack](https://htmlagilitypack.codeplex.com/) targetting the .Net core 1.0 RTM. This fork points to v1.4.9.4 of the actual source including namespaces. 
 
