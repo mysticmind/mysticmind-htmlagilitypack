@@ -1,31 +1,35 @@
 version: 1.0.{build}
+
 configuration: Release
+
+os: Visual Studio 2017
+
+branches:
+  only:
+    - master
+    - csproj_migration
+
+environment:
+  DOTNET_CLI_TELEMETRY_OPTOUT: true
+  DOTNET_SKIP_FIRST_TIME_EXPERIENCE: true
+  TARGET_BUILD_VERSION: '1.4.9.4'
+
+nuget:
+  disable_publish_on_pr: true
+
 before_build:
-- cmd: >-
-    appveyor-retry dotnet restore -v Minimal
+- dotnet --info
+- dotnet restore .\src\MysticMind.HtmlAgilityPack.sln
 
-    cd %APPVEYOR_BUILD_FOLDER%\src\build
-
-    npm install
-
-    node update-project-version.js ../MysticMind.HtmlAgilityPack/project.json %APPVEYOR_BUILD_VERSION%
-
-    node update-project-version.js ../MysticMind.HtmlAgilityPack.Tests/project.json %APPVEYOR_BUILD_VERSION%
-
-    node update-project-deps-version.js ../MysticMind.HtmlAgilityPack.Tests/project.json MysticMind.HtmlAgilityPack %APPVEYOR_BUILD_VERSION%
-
-    cd %APPVEYOR_BUILD_FOLDER%
 after_build:
-- cmd: dotnet pack "src\MysticMind.HtmlAgilityPack" -c %CONFIGURATION% --no-build -o artifacts
+  - dotnet pack .\src\MysticMind.HtmlAgilityPack --configuration Release /p:Version=%TARGET_BUILD_VERSION%
+
 test_script:
-- ps: >-
-    cd src/MysticMind.HtmlAgilityPack.Tests
+  - dotnet test .\src\MysticMind.HtmlAgilityPack.Tests\MysticMind.HtmlAgilityPack.Tests.csproj --configuration Release
 
-    dotnet restore
-
-    dotnet test
 artifacts:
-- path: artifacts\**\*.*
+  - path: '**\MysticMind.HtmlAgilityPack.*.nupkg'
+
 # deploy:
 # - provider: NuGet
 #   api_key:

@@ -1,0 +1,28 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFrameworks>netcoreapp1.0;net46;net452;net451;net45</TargetFrameworks>
+    <AssemblyName>MysticMind.HtmlAgilityPack.Tests</AssemblyName>
+    <PackageId>MysticMind.HtmlAgilityPack.Tests</PackageId>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\MysticMind.HtmlAgilityPack\MysticMind.HtmlAgilityPack.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="xunit.runner.visualstudio" Version="2.2.0-beta5-build1225" />
+    <PackageReference Include="xunit" Version="2.2.0-beta5-build3474" />
+    <PackageReference Include="Microsoft.NET.Test.Sdk" />
+    <PackageReference Include="microsoft.testplatform.testhost" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Update="files\mshome.htm">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{82a7f48d-3b50-4b1e-b82e-3ada8210c358}" />
+  </ItemGroup>
+</Project>

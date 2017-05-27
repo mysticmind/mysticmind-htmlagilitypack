@@ -1,0 +1,28 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <Description>This is a port of the popular HtmlAgilityPack targetting the .Net core 1.0 RTM. This fork points to v1.4.9.4 of the actual source including namespaces.</Description>
+    <Copyright>Copyright (C) Babu Annamalai</Copyright>
+    <AssemblyTitle>MysticMind.HtmlAgilityPack</AssemblyTitle>
+    <Authors>Babu Annamalai</Authors>
+    <VersionPrefix>1.4.9.4</VersionPrefix>
+    <TargetFrameworks>net46;net452;net451;net45;netstandard1.6</TargetFrameworks>
+    <AssemblyName>MysticMind.HtmlAgilityPack</AssemblyName>
+    <PackageId>MysticMind.HtmlAgilityPack</PackageId>
+    <PackageTags>Html;parse;.net core;net core;netcore;netcore 1.0;netcore rtm</PackageTags>
+    <PackageLicenseUrl>https://github.com/mysticmind/mysticmind-htmlagilitypack/blob/master/LICENSE</PackageLicenseUrl>
+    <RepositoryUrl>https://github.com/mysticmind/mysticmind-htmlagilitypack</RepositoryUrl>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Reference Include="System.Net.Http" />
+  </ItemGroup>
+
+  <ItemGroup Condition=" '$(TargetFramework)' == 'netstandard1.6' ">
+    <PackageReference Include="System.Diagnostics.TraceSource" Version="4.0.0-*" />
+    <PackageReference Include="System.Xml.XmlDocument" Version="4.0.1-*" />
+    <PackageReference Include="System.Xml.XPath" Version="4.0.1-*" />
+    <PackageReference Include="System.Xml.XPath.XmlDocument" Version="4.0.1-*" />
+  </ItemGroup>
+
+</Project>
